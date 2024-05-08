@@ -17,8 +17,16 @@ def main():
     password = st.sidebar.text_input("Password", type="password")
     receiver_email = st.sidebar.text_input("Receiver Email")
 
-    websites_file = st.file_uploader("Upload Excel file containing websites", type=["xlsx"])
 
+    filename = "Websites.xlsx"
+
+    # Upload the Excel file
+    with open(filename, "rb") as file:
+        websites_file = st.file_uploader("Upload Excel file containing websites", file.getvalue(), type=["xlsx"])
+
+    if websites_file is not None:
+        # Process the uploaded file
+        st.write("File uploaded successfully!")
     if sender_email and password and receiver_email and websites_file:
         try:
             workbook = load_workbook(websites_file)
