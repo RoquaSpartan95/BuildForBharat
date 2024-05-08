@@ -1,0 +1,8 @@
+requests
+smtplib
+MIMEText
+openpyxl
+streamlit
+time
+email.mime.text
+load_workbook
